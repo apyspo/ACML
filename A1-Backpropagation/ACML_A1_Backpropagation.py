@@ -59,7 +59,7 @@ B = np.array([
     [1]
 ])
 
-ITER=50000000
+ITER=8000000
 for currentIter in range(1, ITER):
     i = currentIter % 9
     if i != 0:
