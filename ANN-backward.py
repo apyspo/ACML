@@ -1,8 +1,10 @@
 import numpy as np
+
 def sigmoid(z):
   return 1/(1+np.exp(-z))
 def dersigmoid(a):
     return a*(1-a) 
+
 X = np.array([
         [1, 0, 0, 0, 0, 0, 0, 0], 
         [0, 1, 0, 0, 0, 0, 0, 0], 
@@ -23,8 +25,9 @@ y = np.array([
         [0, 0, 0, 0, 0, 0, 1, 0], 
         [0, 0, 0, 0, 0, 0, 0, 1]
         ])
-W1=np.random.normal(0,0.01,size=(8,2))
-W2=random.normal(0,0.01,size=(2,8))
+
+W1 = np.random.normal(0,0.01,size=(8,2))
+W2 = np.random.normal(0,0.01,size=(2,8))
 b1 = np.random.normal(0,0.01, size=(8,2))
 b2 = np.random.normal(0,0.01, size=(8,8))
 for j in range(1,1000000):
