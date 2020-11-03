@@ -55,15 +55,15 @@ for learningRate in [0.01, 0.05, 0.1]:
         l1 = sigmoid(np.dot(l0, W1)+b1)
         l2 = sigmoid(np.dot(l1, W2)+b2)
         # backward
-        l2_error = y - l2
+        l2_error = l2 - y
         l2_delta = l2_error*dersigmoid(l2)
         l1_error = l2_delta.dot(W2.T)
         l1_delta = l1_error*dersigmoid(l1)
         # Updata weights and bias
-        W2 += learningRate*(l1.T.dot(l2_delta) + weightDecay * W2)
-        W1 += learningRate*(l0.T.dot(l1_delta) + weightDecay * W1)
-        b1 += learningRate*l1_delta
-        b2 += learningRate*l2_delta
+        W2 -= learningRate*(l1.T.dot(l2_delta) + weightDecay * W2)
+        W1 -= learningRate*(l0.T.dot(l1_delta) + weightDecay * W1)
+        b1 -= learningRate*l1_delta
+        b2 -= learningRate*l2_delta
         # store the error for learning curve
         if (i%1000==0):
             learningCurve.append([i, learningRate, np.sum(1/2 * np.dot(l2_error.T, l2_error))])
